@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ever After Events - Wedding & Event Planning</title>
+  <link rel="icon" type="image/x-icon" href="logo.png">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --rose: #E91E63;
+      --blush: #FCE4EC;
+      --cream: #FFF8F0;
+      --charcoal: #2C2C2C;
+      --soft-gray: #F5F5F5;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--charcoal);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, var(--gold), var(--rose));
+      backdrop-filter: blur(10px);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: white;
+      padding: 3px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(233,30,99,0.85)), url('background.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 160px 20px 140px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 720px;
+      margin: 20px auto 30px;
+      opacity: 0.95;
+      font-style: italic;
+    }
+    .hero .tagline {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-top: 15px;
+    }
+
+    /* Section titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      color: var(--charcoal);
+      font-family: 'Playfair Display', serif;
+    }
+    .section-title span {
+      color: var(--rose);
+    }
+
+    /* Cards */
+    .custom-card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      transition: all 0.35s ease;
+      background: #fff;
+    }
+    .custom-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(212,175,55,0.2);
+    }
+
+    /* Services */
+    .service-card {
+      border: 2px solid var(--blush);
+      border-radius: 15px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+    .service-card:hover {
+      border-color: var(--rose);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(233,30,99,0.15);
+    }
+    .service-card h5 {
+      color: var(--rose);
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .service-card ul li:before {
+      content: "♥ ";
+      color: var(--rose);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* Founder Section */
+    .founder-section {
+      background: linear-gradient(135deg, var(--blush), var(--cream));
+      padding: 60px 0;
+    }
+    .founder-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .founder-card .founder-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--gold);
+      margin-bottom: 25px;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+    }
+    .founder-card h4 {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .founder-card h5 {
+      color: var(--rose);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      color: #fff;
+      border-radius: 24px;
+      padding: 50px;
+    }
+    .contact-box h5 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--charcoal);
+      color: #e0e0e0;
+      padding: 30px 0;
+      font-size: 0.95rem;
+    }
+    
+    .logo-circle {
+      background: #ffffff;
+      border-radius: 50%;
+      padding: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 280px;
+      height: 280px;
+    }
+    .logo-circle img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-gold:hover {
+      background: #C19B2E;
+      color: #fff;
+    }
+
+    .text-rose {
+      color: var(--rose);
+    }
+    .text-gold {
+      color: var(--gold);
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" alt="Ever After Events Logo">
+      <span>Ever After Events</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#founder">Founder</a></li>
+        <li class="nav-item"><a class="nav-link" href="#vision">Vision & Mission</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="logo-circle mb-4">
+        <img src="logo.png" alt="Ever After Events Logo">
+    </div>
+    <h1>Ever After Events</h1>
+    <p class="tagline">Love. Planned. Future.</p>
+    <p>Where love stories come to life through expertly crafted celebrations</p>
+    <a href="#contact" class="btn btn-gold btn-lg me-2">Get in Touch</a>
+    <a href="#services" class="btn btn-outline-light btn-lg">Our Services</a>
+  </div>
+</section>
+
+<!-- About -->
+<section class="py-5" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About <span>Us</span></h2>
+      <p>Crafting unforgettable celebrations with love and precision</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card custom-card p-5">
+          <p class="lead text-center mb-4">
+            Ever After Events is an event management consulting company with expertise in wedding and romantic themed events.
+          </p>
+          <p>
+            We bring love stories to life by handling all the details involved in event planning, allowing couples to focus on the most important aspect: celebrating their love and future together. Our team combines imagination, professionalism, and thoroughness to deliver stylish and personalized events beyond your expectations.
+          </p>
+          <div class="mt-4 text-center">
+            <h5 class="text-gold mb-3">Logo Symbolism</h5>
+            <p>
+              The Ever After Events logo embodies love, connection, and celebration. The bride and groom at its center represent the heart of our brand weddings and their precious moments. Surrounded by a gold border and ribbon, the design signifies something treasured and elegant. White doves symbolize love, peace, and eternal commitment, while pink ribbons and roses add romance and tenderness, creating a harmonious celebration of love.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="founder-section" id="founder">
+  <div class="container">
+    <div class="section-title">
+      <h2>Meet Our <span>Founder</span></h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="founder-card text-center">
+          <img src="janelle.png" alt="Janelle Kyla A. Yacapin" class="founder-image">
+          <h4>Janelle Kyla A. Yacapin</h4>
+          <h5>Founder & Chief Executive Officer</h5>
+          <p>
+            Janelle brings over 12 years of experience in luxury event planning and hospitality management. A graduate of the International School of Event Management, she has orchestrated over 300 weddings and romantic celebrations, transforming dreams into unforgettable experiences with meticulous attention to detail and heartfelt passion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision & Mission -->
+<section class="py-5 bg-light" id="vision">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our <span>Purpose</span></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card custom-card p-5 h-100">
+          <h5 class="fw-bold text-rose mb-3">Vision</h5>
+          <p>
+            With our carefully crafted events, we help bring love stories to life providing every detail so couples can concentrate on what matters most: celebrating their future together!
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card custom-card p-5 h-100">
+          <h5 class="fw-bold text-gold mb-3">Mission</h5>
+          <p>
+            To be the trusted name in making unforgettable celebrations that mark the beginning of beautiful futures together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-5" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our <span>Services</span></h2>
+      <p>Comprehensive wedding planning tailored to your love story</p>
+    </div>
+    
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Full Wedding Planning</h5>
+          <p>Comprehensive planning from engagement to reception, including:</p>
+          <ul>
+            <li>Budget creation and management</li>
+            <li>Venue research and selection</li>
+            <li>Vendor sourcing and negotiations</li>
+            <li>Design concept development</li>
+            <li>Timeline creation and coordination</li>
+            <li>Day-of coordination and management</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Partial Wedding Planning</h5>
+          <p>Perfect for couples who have started planning but need professional assistance to bring it all together seamlessly.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Day-of Coordination</h5>
+          <p>Seamless execution of your wedding day, ensuring every moment unfolds perfectly while you focus on celebrating.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title mt-5">
+      <h3>Specialized <span>Services</span></h3>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Destination Weddings</h5>
+          <p>Create unforgettable memories in breathtaking locations around the world.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Engagement Parties</h5>
+          <p>Celebrate the beginning of your journey with elegantly planned engagement events.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Bridal Showers & Bachelorette Parties</h5>
+          <p>Memorable pre-wedding celebrations designed around the bride's personality and style.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Anniversary Celebrations</h5>
+          <p>Honor your enduring love with beautifully orchestrated anniversary events.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card">
+          <h5>Vow Renewals</h5>
+          <p>Reaffirm your commitment with an intimate and meaningful ceremony.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="py-5" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact <span>Us</span></h2>
+      <p>Let's start planning your perfect celebration</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="contact-box">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Reach Out</h5>
+              <p>📞 +63 917 845 2391</p>
+              <p>📧 contact@everafterevents.com</a></p>
+              <p>🌐 everafterevents.com</p>
+            </div>
+            <div class="col-md-6">
+              <h5>Office</h5>
+              <p>123 Celebration Avenue<br>
+              Caloocan City, Barangay 167<br>
+              Philippines</p>
+              <p><strong>Founder & CEO:</strong><br>Janelle Kyla A. Yacapin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-0">© 2026 Ever After Events. All Rights Reserved. | Love. Planned. Future.</p>
+  </div
